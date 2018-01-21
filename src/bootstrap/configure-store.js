@@ -3,7 +3,7 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import createHistory from 'history/createBrowserHistory'
 import { routerMiddleware } from 'react-router-redux'
 import createSagaMiddleware from 'redux-saga'
-import rootReducer from '../duxs'
+import rootReducer from '../reducers'
 import rootSaga from '../sagas'
 
 let sagaMiddleware
@@ -49,7 +49,7 @@ export default function configureStore(initialState = {}) {
 }
 
 if (module.hot) {
-  module.hot.accept('../duxs', () => {
+  module.hot.accept('../reducers', () => {
     store.replaceReducer(rootReducer)
   })
   module.hot.accept('../sagas', () => {

@@ -1,8 +1,8 @@
 {
-  "name": "kleros-dapp-front-boilerplate",
+  "name": "dapp-front-boilerplate",
   "version": "0.1.0",
-  "description": "A boilerplate for Kleros dapps.",
-  "repository": "https://github.com/kleros/kleros-dapp-front-boilerplate",
+  "description": "A boilerplate for Ethereum dapps.",
+  "repository": "https://github.com/kleros/dapp-front-boilerplate",
   "author": "Kleros",
   "license": "MIT",
   "private": true,
@@ -46,16 +46,13 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-helmet": "^5.2.0",
-    "react-loadable": "^5.3.1",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.9",
     "react-scripts": "1.1.0",
-    "react-typography": "^0.16.13",
     "redux": "^3.7.2",
     "redux-form": "^7.2.1",
-    "redux-saga": "^0.16.0",
-    "typography": "^0.16.6"
+    "redux-saga": "^0.16.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^6.0.2",

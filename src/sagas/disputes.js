@@ -1,4 +1,4 @@
-import * as disputesDux from '../duxs/disputes'
+import { disputeActions } from '../actions'
 import { takeLatest } from 'redux-saga/effects'
 
 /**
@@ -11,5 +11,5 @@ function* fetchDisputes() {}
  * @export default disputesSaga
  */
 export default function* disputesSaga() {
-  yield takeLatest(disputesDux.FETCH_DISPUTES, fetchDisputes)
+  yield takeLatest(disputeActions.FETCH_DISPUTES, fetchDisputes)
 }
