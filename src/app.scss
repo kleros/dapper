@@ -1,0 +1,19 @@
+@import './styles/colors.scss';
+
+html,
+body,
+#root,
+#router-root {
+  border: 0;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+#router-root {
+  background: $background;
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+}

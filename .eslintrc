@@ -1,0 +1,57 @@
+{
+  "plugins": ["unicorn"],
+  "extends": [
+    "react-app",
+    "standard",
+    "standard-jsx",
+    "plugin:unicorn/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "unicorn/no-fn-reference-in-iterator": 0,
+    "arrow-body-style": ["error", "as-needed"],
+    "react/jsx-filename-extension": [
+      2,
+      {
+        "extensions": [".js"]
+      }
+    ],
+    "react/forbid-prop-types": 2,
+    "react/prefer-stateless-function": 2,
+    "require-jsdoc": [
+      "error",
+      {
+        "require": {
+          "FunctionDeclaration": true,
+          "MethodDefinition": false,
+          "ClassDeclaration": false,
+          "ArrowFunctionExpression": false,
+          "FunctionExpression": true
+        }
+      }
+    ],
+    "valid-jsdoc": [
+      "error",
+      {
+        "prefer": {
+          "arg": "param",
+          "argument": "param",
+          "class": "class",
+          "return": "returns",
+          "virtual": "abstract"
+        },
+        "preferType": {
+          "Boolean": "boolean",
+          "Number": "number",
+          "Object": "object",
+          "String": "string"
+        },
+        "requireReturn": false,
+        "requireReturnType": true,
+        "matchDescription": ".+",
+        "requireParamDescription": true,
+        "requireReturnDescription": true
+      }
+    ]
+  }
+}
