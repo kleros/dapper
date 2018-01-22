@@ -31,10 +31,12 @@ PROD_ARBITRATOR_ADDRESS=
 
 * `yarn run prettify` - Applies prettier to the entire project.
 * `yarn run lint` - Lints the entire project.
+* `yarn run lint:fix` - Fixes fixable linting errors.
 * `yarn test` - Runs the jest test suites + storyshots.
 * `yarn run storybook` - Starts the storybook.
 * `yarn run cz` - Runs commitizen.
-* `yarn run build` - Creates a production build and a bundle analyzer file.
+* `yarn run build` - Creates a production build.
+* `yarn run build:analyze` - Analyzes the production build using source-map-explorer.
 
 ## Testing
 

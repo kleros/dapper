@@ -11,6 +11,8 @@
       "prettier --config ./.prettierrc --write \"./*.{js,json}\" \"./{src,.storybook,stories}/**/*.{js,json}\"",
     "lint":
       "eslint \"./*.js\" \"./{src,.storybook,stories}/**/*.js\" && stylelint \"./src/**/*.scss\" --syntax scss",
+    "lint:fix":
+      "eslint --fix \"./*.js\" \"./{src,.storybook,stories}/**/*.js\" && stylelint --fix \"./src/**/*.scss\" --syntax scss",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "test": "react-scripts test --env=jsdom --coverage",
     "test:coveralls": "coveralls < ./coverage/lcov.info",
@@ -23,7 +25,8 @@
     "build:js": "react-scripts build",
     "build:scss": "node-sass-chokidar ./src/ -o ./src/",
     "start": "npm-run-all -p start:scss start:js",
-    "build": "npm-run-all build:scss build:js"
+    "build": "npm-run-all build:scss build:js",
+    "build:analyze": "source-map-explorer build/static/js/main.*"
   },
   "lint-staged": {
     "*.{js,json}": ["prettier --config ./.prettierrc --write", "git add"]
