@@ -1,6 +1,8 @@
 import { delay } from 'redux-saga'
-import disputesSaga from './disputes'
 import { spawn, call, all } from 'redux-saga/effects'
+
+import balanceSaga from './balance'
+import disputesSaga from './disputes'
 
 /**
  * Makes a saga restart after an uncaught error.
@@ -27,7 +29,7 @@ function makeRestartable(saga) {
   }
 }
 
-const rootSagas = [disputesSaga].map(makeRestartable)
+const rootSagas = [balanceSaga, disputesSaga].map(makeRestartable)
 
 /**
  * The root saga.

@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+
 import { createReducer } from '../utils'
 import { disputeActions } from '../actions'
 

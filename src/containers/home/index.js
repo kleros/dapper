@@ -1,7 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Home = ({ str }) => <b>Hello World{str}</b>
+import Balance from '../balance'
+
+const Home = ({ str }) => (
+  <div>
+    <b>Hello CryptoWorld{str}</b>
+    <br />
+    <br />
+    <Balance />
+  </div>
+)
 
 Home.propTypes = {
   str: PropTypes.string

@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+
 import { web3 } from './kleros'
 import RequiresMetaMask from './requires-meta-mask'
 
