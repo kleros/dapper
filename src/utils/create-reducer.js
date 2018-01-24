@@ -23,11 +23,11 @@ export default function createReducer(initialState, reducerMap) {
         ? reducerMap[action.type](state, action)
         : state
 
-    for (const actionTypePrefix of Object.keys(automaticActionPluginMap)) {
-      const l = actionTypePrefix.length
-      const a = action.type.slice(0, l)
-      if (actionTypePrefix === a) {
-        const resource = constantToCamelCase(action.type.slice(l), {
+    for (const typePrefix of Object.keys(automaticActionPluginMap)) {
+      const typePrefixLen = typePrefix.length
+      const actionTypePrefix = action.type.slice(0, typePrefixLen)
+      if (typePrefix === actionTypePrefix) {
+        const resource = constantToCamelCase(action.type.slice(typePrefixLen), {
           capitalizeFirst: true
         })
         const lResource = resource.toLowerCase()
@@ -36,11 +36,11 @@ export default function createReducer(initialState, reducerMap) {
           ...newState,
           [lResource]: {
             data:
-              actionTypePrefix === 'RECEIVE_' &&
+              typePrefix === 'RECEIVE_' &&
               (!reducerMap || !reducerMap[action.type])
                 ? action.payload[lResource]
                 : state[lResource].data,
-            ...automaticActionPluginMap[actionTypePrefix]
+            ...automaticActionPluginMap[typePrefix]
           }
         }
         break

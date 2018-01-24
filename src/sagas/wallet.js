@@ -1,9 +1,11 @@
-import { takeLatest, call, put, select } from 'redux-saga/effects'
 import unit from 'ethjs-unit'
-import { receiveAction, errorAction } from '../utils/actions'
+
+import { takeLatest, call, put, select } from 'redux-saga/effects'
+
 import * as walletActions from '../actions/wallet'
 import * as walletSelectors from '../reducers/wallet'
 import { eth } from '../bootstrap/dapp-api'
+import { receiveAction, errorAction } from '../utils/actions'
 import { ETH_NO_ACCOUNTS } from '../constants/errors'
 
 /**

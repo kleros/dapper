@@ -13,7 +13,7 @@
       "eslint \"./*.js\" \"./{src,.storybook,stories}/**/*.js\" && stylelint \"./src/**/*.scss\" --syntax scss",
     "lint:fix":
       "eslint --fix \"./*.js\" \"./{src,.storybook,stories}/**/*.js\" && stylelint --fix \"./src/**/*.scss\" --syntax scss",
-    "test": "yarn run build:scss && react-scripts test --env=jsdom --coverage",
+    "test": "react-scripts test --env=jsdom --coverage",
     "test:coveralls": "coveralls < ./coverage/lcov.info",
     "commitmsg": "commitlint -e $GIT_PARAMS",
     "precommit": "lint-staged && yarn run lint && yarn test",
@@ -52,6 +52,7 @@
   "dependencies": {
     "ethjs": "^0.3.3",
     "ethjs-unit": "^0.1.6",
+    "history": "^4.7.2",
     "kleros-api": "^0.0.49",
     "normalize.css": "^7.0.0",
     "react": "^16.2.0",

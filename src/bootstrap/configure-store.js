@@ -1,8 +1,9 @@
 /* eslint-disable global-require */
 import { applyMiddleware, compose, createStore } from 'redux'
-import createHistory from 'history/createBrowserHistory'
 import { routerMiddleware } from 'react-router-redux'
 import createSagaMiddleware from 'redux-saga'
+import createHistory from 'history/createBrowserHistory'
+
 import rootReducer from '../reducers'
 import rootSaga from '../sagas'
 

@@ -2,6 +2,7 @@
 
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![Build Status](https://travis-ci.org/kleros/dapp-front-boilerplate.svg?branch=master)](https://travis-ci.org/kleros/dapp-front-boilerplate)
+[![Dependencies](https://david-dm.org/kleros/dapp-front-boilerplate.svg)](https://github.com/kleros/dapp-front-boilerplate/blob/master/package.json)
 [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
 [![Coverage Status](https://coveralls.io/repos/github/kleros/dapp-front-boilerplate/badge.svg?branch=master)](https://coveralls.io/github/kleros/dapp-front-boilerplate?branch=master)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)

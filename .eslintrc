@@ -8,9 +8,35 @@
     "plugin:prettier/recommended"
   ],
   "rules": {
-    "arrow-body-style": ["error", "as-needed"],
+    "arrow-body-style": [2, "as-needed"],
+
     "unicorn/no-fn-reference-in-iterator": 0,
-    "unicorn/catch-error-name": ["error", { "name": "err" }],
+    "unicorn/catch-error-name": [2, { "name": "err" }],
+
+    "import/no-unresolved": 2,
+    "import/named": 2,
+    "import/default": 2,
+    "import/namespace": 2,
+    "import/no-named-as-default": 2,
+    "import/no-named-as-default-member": 2,
+    "import/no-extraneous-dependencies": 2,
+    "import/newline-after-import": 2,
+    "import/no-named-default": 2,
+    "import/order": [
+      2,
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index"
+        ],
+        "newlines-between": "always"
+      }
+    ],
+
     "react/jsx-filename-extension": [
       2,
       {
@@ -18,6 +44,7 @@
       }
     ],
     "react/jsx-no-bind": 2,
+
     "react/prefer-stateless-function": 2,
     "react/destructuring-assignment": [2, "always"],
     "react/prop-types": 2,
@@ -25,8 +52,9 @@
     "react/no-unused-prop-types": 2,
     "react/require-default-props": 2,
     "react/default-props-match-prop-types": 2,
+
     "require-jsdoc": [
-      "error",
+      2,
       {
         "require": {
           "FunctionDeclaration": true,
@@ -38,7 +66,7 @@
       }
     ],
     "valid-jsdoc": [
-      "error",
+      2,
       {
         "prefer": {
           "arg": "param",
@@ -60,6 +88,7 @@
         "requireReturnDescription": true
       }
     ],
+
     "standard/computed-property-even-spacing": 0
   }
 }

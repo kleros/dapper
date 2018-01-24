@@ -1,6 +1,7 @@
 import setupIntegrationTest, {
   flushPromises
 } from '../../bootstrap/setup-integration-test'
+
 import Balance from '.'
 
 let integration = {

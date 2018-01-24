@@ -1,5 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
+
 import RequiresMetaMask from '../src/components/requires-meta-mask'
 
 storiesOf('RequiresMetaMask', module)

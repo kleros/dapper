@@ -11,6 +11,7 @@ Docs URL: http://redux-form.com/6.8.0/docs/api/Field.md/
 import React from 'react'
 import PropTypes from 'prop-types'
 import { reduxForm, Field, formValues, isInvalid, submit } from 'redux-form'
+
 import { objMap } from './functional'
 import { camelToTitleCase } from './strings'
 

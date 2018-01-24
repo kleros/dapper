@@ -1,8 +1,8 @@
 import React from 'react'
 import { mount } from 'enzyme'
+
 import configureStore from './configure-store'
 import App from './app'
-import { setTimeout } from 'timers'
 
 /**
  * Wait for all promises to resolve in a test environment.

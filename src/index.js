@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+
 import configureStore from './bootstrap/configure-store'
 import App from './bootstrap/app'
 import registerServiceWorker from './bootstrap/register-service-worker'

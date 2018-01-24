@@ -6,6 +6,7 @@ cache:
     - node_modules
   yarn: true
 script:
+  - yarn run build:scss
   - yarn run lint
   - yarn test
   - 'yarn run test:coveralls'

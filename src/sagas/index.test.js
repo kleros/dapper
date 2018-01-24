@@ -1,6 +1,8 @@
-import { makeRestartable } from '.'
 import { delay } from 'redux-saga'
+
 import { call } from 'redux-saga/effects'
+
+import { makeRestartable } from '.'
 
 it('Restarts terminated sagas.', async () => {
   const saga = function*() {}

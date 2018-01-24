@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
 import './require-meta-mask.css'
 
 const RequiresMetaMask = ({ needsUnlock }) => (

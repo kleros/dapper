@@ -1,8 +1,10 @@
 import React from 'react'
 import { submit as reduxFormSubmit } from 'redux-form'
+
 import setupIntegrationTest, {
   flushPromises
 } from '../bootstrap/setup-integration-test'
+
 import formGenerator from './form-generator'
 import { required, number } from './validate'
 

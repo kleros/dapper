@@ -1,5 +1,6 @@
-import { createShape, renderIf } from './react-redux'
 import PropTypes from 'prop-types'
+
+import { createShape, renderIf } from './react-redux'
 
 jest.mock('prop-types', () => ({
   shape: s => s,
