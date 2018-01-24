@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import configureStore from './bootstrap/configure-store'
-import App from './app'
+import App from './bootstrap/app'
 import registerServiceWorker from './bootstrap/register-service-worker'
 
 const { store, history } = configureStore()
@@ -22,7 +22,7 @@ const render = Component => {
 render(App)
 
 if (module.hot) {
-  module.hot.accept('./app', () => {
+  module.hot.accept('./bootstrap/app', () => {
     render(App)
   })
 }

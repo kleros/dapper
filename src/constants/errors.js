@@ -1,2 +1,2 @@
-export const WEB3_NOT_RESOLVED =
-  'The object `web3` was not found. Maybe try to install Metamask https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en'
+export const ETH_NO_ACCOUNTS =
+  'web3 accounts not found. Do you have MetaMask installed and unlocked?'

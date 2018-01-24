@@ -15,14 +15,14 @@
 
 ```sh
 # Development
-DEV_ETHEREUM_PROVIDER=http://localhost:8545
-DEV_STORE_PROVIDER=https://kleros.in
-DEV_ARBITRATOR_ADDRESS=0xaea35f89f98996ae06aac344ab4b9ce1731059c4
+REACT_APP_DEV_ETHEREUM_PROVIDER=http://localhost:8545
+REACT_APP_DEV_STORE_PROVIDER=https://kleros.in
+REACT_APP_DEV_ARBITRATOR_ADDRESS=<address>
 
 # Production
-PROD_ETHEREUM_PROVIDER=
-PROD_STORE_PROVIDER=
-PROD_ARBITRATOR_ADDRESS=
+REACT_APP_PROD_ETHEREUM_PROVIDER=<provider>
+REACT_APP_PROD_STORE_PROVIDER=<provider>
+REACT_APP_PROD_ARBITRATOR_ADDRESS=<address>
 ```
 
 4. Run `yarn` to install dependencies and then `yarn start` to start the dev server.

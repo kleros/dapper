@@ -17,7 +17,7 @@ const TextInput = ({
       {...rest}
     />
     {/* T O D O: Display meta data */}
-    {console.log(valid, touched, error)}
+    {console.log(`valid: ${valid}`, `touched: ${touched}`, `error: ${error}`)}
   </div>
 )
 

@@ -1,0 +1,17 @@
+/* @define RequiresMetaMask */
+.RequiresMetaMask {
+  background: #273142;
+  height: 100%;
+
+  &-message {
+    color: white;
+    font-size: 40px;
+    padding-top: 10%;
+    text-align: center;
+
+    &-link {
+      color: #999;
+      text-decoration: none;
+    }
+  }
+}

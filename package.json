@@ -13,20 +13,21 @@
       "eslint \"./*.js\" \"./{src,.storybook,stories}/**/*.js\" && stylelint \"./src/**/*.scss\" --syntax scss",
     "lint:fix":
       "eslint --fix \"./*.js\" \"./{src,.storybook,stories}/**/*.js\" && stylelint --fix \"./src/**/*.scss\" --syntax scss",
-    "storybook": "start-storybook -p 9001 -c .storybook",
-    "test": "react-scripts test --env=jsdom --coverage",
+    "test": "yarn run build:scss && react-scripts test --env=jsdom --coverage",
     "test:coveralls": "coveralls < ./coverage/lcov.info",
     "commitmsg": "commitlint -e $GIT_PARAMS",
     "precommit": "lint-staged && yarn run lint && yarn test",
     "cz": "git-cz",
     "start:js": "react-scripts start",
     "start:scss":
-      "npm run build:scss && node-sass-chokidar ./src/ -o ./src/ --watch --recursive",
+      "yarn run build:scss && node-sass-chokidar ./src/ -o ./src/ --watch --recursive",
+    "start:storybook": "start-storybook -p 9001 -c .storybook",
     "build:js": "react-scripts build",
     "build:scss": "node-sass-chokidar ./src/ -o ./src/",
     "start": "npm-run-all -p start:scss start:js",
     "build": "npm-run-all build:scss build:js",
-    "build:analyze": "source-map-explorer build/static/js/main.*"
+    "build:analyze": "source-map-explorer build/static/js/main.*",
+    "storybook": "npm-run-all -p start:scss start:storybook"
   },
   "lint-staged": {
     "*.{js,json}": ["prettier --config ./.prettierrc --write", "git add"]
@@ -40,13 +41,21 @@
     }
   },
   "jest": {
-    "collectCoverageFrom": ["src/**/*.js", "!**/node_modules/**"]
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/*.js",
+      "!src/bootstrap/**/*.js",
+      "!src/components/identicon/index.js",
+      "!**/node_modules/**"
+    ]
   },
   "dependencies": {
     "ethjs": "^0.3.3",
     "ethjs-unit": "^0.1.6",
     "kleros-api": "^0.0.49",
+    "normalize.css": "^7.0.0",
     "react": "^16.2.0",
+    "react-blockies": "^1.2.2",
     "react-dom": "^16.2.0",
     "react-helmet": "^5.2.0",
     "react-redux": "^5.0.6",
@@ -67,6 +76,8 @@
     "@storybook/storybook-deployer": "^2.2.0",
     "commitizen": "^2.9.6",
     "coveralls": "^3.0.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "esdoc": "^1.0.4",
     "esdoc-ecmascript-proposal-plugin": "^1.0.0",
     "esdoc-standard-plugin": "^1.0.0",
@@ -80,7 +91,9 @@
     "eslint-plugin-react": "^7.5.1",
     "eslint-plugin-standard": "^3.0.1",
     "eslint-plugin-unicorn": "^3.0.1",
+    "ethereumjs-testrpc": "^6.0.3",
     "husky": "^0.14.3",
+    "jest-enzyme": "^4.0.2",
     "lint-staged": "^6.0.1",
     "node-sass-chokidar": "^0.0.3",
     "npm-run-all": "^4.1.2",

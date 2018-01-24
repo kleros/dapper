@@ -10,10 +10,9 @@ Docs URL: http://redux-form.com/6.8.0/docs/api/Field.md/
 */
 import React from 'react'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 import { reduxForm, Field, formValues, isInvalid, submit } from 'redux-form'
-import { camelToTitleCase } from './strings'
 import { objMap } from './functional'
+import { camelToTitleCase } from './strings'
 
 // Validation Helpers
 const validatorNamer = name => v =>
@@ -29,37 +28,10 @@ const combineValidators = validators => (...args) => {
 
 const resolveValidate = (name, validate) => {
   const namer = validatorNamer(name)
-  if (Array.isArray(validate)) {
-    return combineValidators(validate.map(namer))
-  }
-  return namer(validate)
+  return combineValidators(validate.map(namer))
 }
 
 // Conditional Rendering Helpers
-const visibleBySelector = (Wrapped, selector) => {
-  const VisibleBySelector = ({ reduxFormVisible, ...rest }) =>
-    reduxFormVisible ? <Wrapped {...rest} /> : null
-
-  VisibleBySelector.propTypes = {
-    // State
-    reduxFormVisible: PropTypes.bool
-  }
-
-  VisibleBySelector.defaultProps = {
-    // State
-    reduxFormVisible: false
-  }
-
-  return connect(state => ({ reduxFormVisible: selector(state) }))(
-    VisibleBySelector
-  )
-}
-const validateBySelector = (validate, selector, store) => {
-  if (!validate) return null
-  return (...args) =>
-    selector(store.getState()) ? validate(...args) : undefined
-}
-
 const visibleIf = (Component, valueKey) => {
   const isNegated = valueKey[0] === '!'
   const key = isNegated ? valueKey.slice(1) : valueKey
@@ -69,7 +41,11 @@ const visibleIf = (Component, valueKey) => {
 
   VisibleIf.propTypes = {
     // State
-    [key]: PropTypes.bool
+    [key]: PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.string,
+      PropTypes.number
+    ])
   }
 
   VisibleIf.defaultProps = {
@@ -101,18 +77,15 @@ function createFields({ UIKit, store }, formName, schema) {
       ...rawField,
       validate: rawField.validate
         ? resolveValidate(name, rawField.validate)
-        : null
+        : null,
+      props: {
+        ...rawField.props,
+        placeholder: rawField.props ? rawField.props.placeholder : name
+      }
     }
-    field.placeholder = field.placeholder || name
     let Component = UIKit[field.type]
 
     // Conditional rendering
-    if (field.visibleBySelector) {
-      Component = visibleBySelector(Component, field.visibleBySelector)
-      field.validate =
-        field.validate &&
-        validateBySelector(field.validate, field.visibleBySelector, store)
-    }
     if (field.visibleIf) {
       Component = visibleIf(Component, field.visibleIf)
       field.validate =
@@ -120,19 +93,16 @@ function createFields({ UIKit, store }, formName, schema) {
     }
 
     // Access form values
-    if (field.formValueProps)
-      Component = formValues(
-        ...(Array.isArray(field.formValueProps)
-          ? field.formValueProps
-          : [field.formValueProps])
-      )(Component)
+    if (field.formValues) Component = formValues(field.formValues)(Component)
 
     return (
       <Field
         key={`${formName}-${fieldKey}`}
         name={fieldKey}
         component={Component}
-        {...{ ...field, props: { style: { flex: 1 }, ...field.props } }}
+        validate={field.validate}
+        props={{ style: { flex: 1 }, ...field.props }}
+        {...field.reduxFormFieldProps}
       />
     )
   })

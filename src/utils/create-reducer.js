@@ -1,5 +1,14 @@
 import { constantToCamelCase } from './strings'
 
+const automaticActionPluginMap = {
+  CREATE_: { creating: true, failedCreating: false },
+  RECEIVE_CREATED_: { creating: false, failedCreating: false },
+  FAIL_CREATE_: { creating: false, failedCreating: true },
+  FETCH_: { loading: true, failedLoading: false },
+  RECEIVE_: { loading: false, failedLoading: false },
+  FAIL_FETCH_: { loading: false, failedLoading: true }
+}
+
 /**
  * Util that makes creating reducers easier.
  * @export default createReducer
@@ -14,31 +23,28 @@ export default function createReducer(initialState, reducerMap) {
         ? reducerMap[action.type](state, action)
         : state
 
-    // Automatic loading plugin
-    if (action.type.slice(0, 7) === 'CREATE_') {
-      // Start loading
-      const resource = constantToCamelCase(action.type.slice(7), {
-        capitalizeFirst: true
-      })
-      newState = { ...newState, ['creating' + resource]: true }
-    } else if (action.type.slice(0, 16) === 'RECEIVE_CREATED_') {
-      // End loading
-      const resource = constantToCamelCase(action.type.slice(16), {
-        capitalizeFirst: true
-      })
-      newState = { ...newState, ['creating' + resource]: false }
-    } else if (action.type.slice(0, 6) === 'FETCH_') {
-      // Start loading
-      const resource = constantToCamelCase(action.type.slice(6), {
-        capitalizeFirst: true
-      })
-      newState = { ...newState, ['loading' + resource]: true }
-    } else if (action.type.slice(0, 8) === 'RECEIVE_') {
-      // End loading
-      const resource = constantToCamelCase(action.type.slice(8), {
-        capitalizeFirst: true
-      })
-      newState = { ...newState, ['loading' + resource]: false }
+    for (const actionTypePrefix of Object.keys(automaticActionPluginMap)) {
+      const l = actionTypePrefix.length
+      const a = action.type.slice(0, l)
+      if (actionTypePrefix === a) {
+        const resource = constantToCamelCase(action.type.slice(l), {
+          capitalizeFirst: true
+        })
+        const lResource = resource.toLowerCase()
+
+        newState = {
+          ...newState,
+          [lResource]: {
+            data:
+              actionTypePrefix === 'RECEIVE_' &&
+              (!reducerMap || !reducerMap[action.type])
+                ? action.payload[lResource]
+                : state[lResource].data,
+            ...automaticActionPluginMap[actionTypePrefix]
+          }
+        }
+        break
+      }
     }
 
     return newState

@@ -1,5 +1,5 @@
 /* eslint-disable global-require */
-import { createStore, applyMiddleware, compose } from 'redux'
+import { applyMiddleware, compose, createStore } from 'redux'
 import createHistory from 'history/createBrowserHistory'
 import { routerMiddleware } from 'react-router-redux'
 import createSagaMiddleware from 'redux-saga'
@@ -14,15 +14,20 @@ let rootSagaTask
  * Sets up the redux store.
  * @export default configureStore
  * @param {object} [initialState={}] The initial state for the redux store, defaults to an empty object.
+ * @param {object} { dispatchSpy } Parameters necessary to setup integration tests.
  * @returns {object} An object with the store and the history objects.
  */
-export default function configureStore(initialState = {}) {
+export default function configureStore(
+  initialState = {},
+  { dispatchSpy } = {}
+) {
   const history = createHistory()
   sagaMiddleware = createSagaMiddleware()
   const enhancers = []
   const middleware = []
   const composeEnhancers =
-    process.env.NODE_ENV === 'development'
+    process.env.NODE_ENV === 'development' &&
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
       ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
       : compose
 
@@ -41,6 +46,13 @@ export default function configureStore(initialState = {}) {
     )
   }
 
+  if (dispatchSpy) {
+    middleware.push(store => next => action => {
+      dispatchSpy(action)
+      return next(action)
+    })
+  }
+
   middleware.push(routerMiddleware(history), sagaMiddleware)
   enhancers.unshift(applyMiddleware(...middleware))
   store = createStore(rootReducer, initialState, composeEnhancers(...enhancers))
@@ -54,6 +66,6 @@ if (module.hot) {
   })
   module.hot.accept('../sagas', () => {
     rootSagaTask.cancel()
-    rootSagaTask.done.then(() => sagaMiddleware.run(rootSaga))
+    rootSagaTask.done.then(() => (rootSagaTask = sagaMiddleware.run(rootSaga)))
   })
 }

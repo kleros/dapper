@@ -1,15 +1,13 @@
 import { delay } from 'redux-saga'
 import { spawn, call, all } from 'redux-saga/effects'
-
-import balanceSaga from './balance'
-import disputesSaga from './disputes'
+import walletSaga from './wallet'
 
 /**
  * Makes a saga restart after an uncaught error.
  * @param {object} saga - A generator function.
  * @returns {object} - A new generator function with the added functionality.
  */
-function makeRestartable(saga) {
+export function makeRestartable(saga) {
   return function*() {
     // eslint-disable-next-line no-constant-condition
     while (true) {
@@ -29,7 +27,7 @@ function makeRestartable(saga) {
   }
 }
 
-const rootSagas = [balanceSaga, disputesSaga].map(makeRestartable)
+const rootSagas = [walletSaga].map(makeRestartable)
 
 /**
  * The root saga.

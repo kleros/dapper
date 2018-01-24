@@ -1,31 +1,71 @@
 import React, { PureComponent } from 'react'
-import { bindActionCreators } from 'redux'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-
-import { fetchBalance } from '../../actions/balance'
+import * as walletActions from '../../actions/wallet'
+import * as walletSelectors from '../../reducers/wallet'
+import { renderIf } from '../../utils/react-redux'
+import Identicon from '../../components/identicon'
+import './balance.css'
 
 class Balance extends PureComponent {
+  static propTypes = {
+    balance: walletSelectors.balanceShape.isRequired,
+    fetchBalance: PropTypes.func.isRequired
+  }
+
   componentDidMount() {
-    const { balance } = this.props.actions
-    balance.fetchBalance()
+    const { fetchBalance } = this.props
+    fetchBalance()
   }
 
   render() {
-    const { balance = 0 } = this.props
+    const { balance } = this.props
+
     return (
-      <div>{balance ? <b>You have {balance} ETH.</b> : <b>loading...</b>}</div>
+      <div className="Balance">
+        <div className="Balance-message">
+          <b>Hello CryptoWorld</b>
+        </div>
+        <br />
+        <br />
+        <div className="Balance-message">
+          {renderIf(
+            [balance.loading],
+            [balance.data],
+            [balance.failedLoading],
+            {
+              loading: 'Loading...',
+              done: (
+                <span>
+                  Welcome <Identicon seed="Placeholder" />, You have{' '}
+                  {balance.data && balance.data.toString()} ETH.
+                </span>
+              ),
+              failed: (
+                <span>
+                  There was an error fetching your balance. Make sure{' '}
+                  <a
+                    className="Balance-message-link"
+                    href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en"
+                  >
+                    MetaMask
+                  </a>{' '}
+                  is unlocked and refresh the page.
+                </span>
+              )
+            }
+          )}
+        </div>
+      </div>
     )
   }
 }
 
-const mapStateToProps = state => ({
-  balance: state.balance
-})
-
-const mapDispatchToProps = dispatch => ({
-  actions: {
-    balance: bindActionCreators({ fetchBalance }, dispatch)
+export default connect(
+  state => ({
+    balance: state.wallet.balance
+  }),
+  {
+    fetchBalance: walletActions.fetchBalance
   }
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Balance)
+)(Balance)

@@ -1,30 +1,46 @@
 import React, { PureComponent } from 'react'
-
-import { web3 } from './kleros'
-import RequiresMetaMask from './requires-meta-mask'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import * as walletActions from '../actions/wallet'
+import * as walletSelectors from '../reducers/wallet'
+import { eth } from './dapp-api'
+import { renderIf } from '../utils/react-redux'
+import RequiresMetaMask from '../components/requires-meta-mask'
 
 class Initializer extends PureComponent {
-  state = {
-    isWeb3Loaded: false,
-    isWeb3Unlocked: false
+  static propTypes = {
+    accounts: walletSelectors.accountsShape.isRequired,
+    fetchAccounts: PropTypes.func.isRequired,
+    children: PropTypes.element.isRequired
   }
 
-  async componentWillMount() {
-    let accounts = []
+  state = { isWeb3Loaded: eth.accounts !== undefined }
 
-    if (web3.accounts !== undefined) {
-      this.setState({ isWeb3Loaded: true })
-      accounts = await web3.accounts()
-    }
-
-    if (accounts.length !== 0) this.setState({ isWeb3Unlocked: true })
+  componentDidMount() {
+    const { fetchAccounts } = this.props
+    fetchAccounts()
   }
 
   render() {
-    if (!this.state.isWeb3Loaded) return <RequiresMetaMask />
-    if (!this.state.isWeb3Unlocked) return <div>Please Unlock MetaMask</div>
-    return <div>{this.props.children}</div>
+    const { isWeb3Loaded } = this.state
+    const { accounts, children } = this.props
+
+    return renderIf(
+      [accounts.loading],
+      [accounts.data && accounts.data[0]],
+      [!isWeb3Loaded, accounts.failedLoading],
+      {
+        loading: 'Loading accounts...',
+        done: children,
+        failed: <RequiresMetaMask needsUnlock={isWeb3Loaded} />
+      }
+    )
   }
 }
 
-export default Initializer
+export default connect(
+  state => ({
+    accounts: state.wallet.accounts
+  }),
+  { fetchAccounts: walletActions.fetchAccounts }
+)(Initializer)
