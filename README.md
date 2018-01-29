@@ -5,8 +5,8 @@
 <p align="center">
   <a href="https://standardjs.com"><img src="https://img.shields.io/badge/code_style-standard-brightgreen.svg" alt="JavaScript Style Guide"></a>
   <a href="https://travis-ci.org/kleros/dapp-front-boilerplate"><img src="https://travis-ci.org/kleros/dapp-front-boilerplate.svg?branch=master" alt="Build Status"></a>
-  <a href="https://david-dm.org/kleros/kleros-dapp-boilerplate"><img src="https://david-dm.org/kleros/dapp-front-boilerplate.svg" alt="Dependencies"></a>
-  <a href="https://david-dm.org/kleros/kleros-dapp-boilerplate?type=dev"><img src="https://david-dm.org/kleros/kleros-dapp-boilerplate/dev-status.svg" alt="Dev Dependencies"></a>
+  <a href="https://david-dm.org/kleros/dapp-front-boilerplate"><img src="https://david-dm.org/kleros/dapp-front-boilerplate.svg" alt="Dependencies"></a>
+  <a href="https://david-dm.org/kleros/dapp-front-boilerplate?type=dev"><img src="https://david-dm.org/kleros/dapp-front-boilerplate/dev-status.svg" alt="Dev Dependencies"></a>
   <a href="https://github.com/facebook/jest"><img src="https://img.shields.io/badge/tested_with-jest-99424f.svg" alt="Tested with Jest"></a>
   <a href="https://coveralls.io/github/kleros/dapp-front-boilerplate?branch=master"><img src="https://coveralls.io/repos/github/kleros/dapp-front-boilerplate/badge.svg?branch=master" alt="Coverage Status"></a>
   <a href="https://conventionalcommits.org"><img src="https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg" alt="Conventional Commits"></a>
