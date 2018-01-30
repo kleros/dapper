@@ -1,6 +1,10 @@
 @import '~normalize.css';
 @import '../styles/_colors.scss';
 
+* {
+  box-sizing: border-box;
+}
+
 html,
 body,
 #root,
@@ -16,5 +20,6 @@ body,
   background: $background;
   display: flex;
   flex-direction: column;
-  font-family: sans-serif;
+  padding-top: 70px;
+  position: relative;
 }

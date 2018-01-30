@@ -6,7 +6,7 @@ import setupIntegrationTest, {
 } from '../bootstrap/setup-integration-test'
 
 import formGenerator from './form-generator'
-import { required, number } from './validate'
+import { required, number } from './validation'
 
 jest.mock('..', () => ({}))
 

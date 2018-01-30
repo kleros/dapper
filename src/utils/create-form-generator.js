@@ -13,7 +13,7 @@ import PropTypes from 'prop-types'
 import { reduxForm, Field, formValues, isInvalid, submit } from 'redux-form'
 
 import { objMap } from './functional'
-import { camelToTitleCase } from './strings'
+import { camelToTitleCase } from './string'
 
 // Validation Helpers
 const validatorNamer = name => v =>

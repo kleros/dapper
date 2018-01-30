@@ -1,4 +1,4 @@
-import { constantToCamelCase } from './strings'
+import { constantToCamelCase } from './string'
 
 const automaticActionPluginMap = {
   CREATE_: { creating: true, failedCreating: false },

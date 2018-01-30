@@ -1,7 +1,11 @@
 import React from 'react'
 import { configure, addDecorator } from '@storybook/react'
 import { host } from 'storybook-host'
-import 'normalize.css'
+import { combineReducers, applyMiddleware, createStore } from 'redux'
+import { Provider } from 'react-redux'
+import { MemoryRouter } from 'react-router-dom'
+
+import '../src/bootstrap/app.css'
 
 addDecorator(
   host({
@@ -9,4 +13,21 @@ addDecorator(
     align: 'center middle'
   })
 )
+
+const store = createStore(
+  combineReducers({}),
+  applyMiddleware(store => next => action => {
+    console.log(action)
+    return next(action)
+  })
+)
+addDecorator(story => (
+  <Provider store={store}>
+    <div>
+      {console.log(store.getState())}
+      <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>
+    </div>
+  </Provider>
+))
+
 configure(() => require('../stories/index.js'), module)

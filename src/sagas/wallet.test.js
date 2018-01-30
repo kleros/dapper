@@ -3,9 +3,9 @@ import { call, put, select } from 'redux-saga/effects'
 import * as walletActions from '../actions/wallet'
 import * as walletSelectors from '../reducers/wallet'
 import { eth } from '../bootstrap/dapp-api'
-import { errorAction } from '../utils/actions'
-import { ETH_NO_ACCOUNTS } from '../constants/errors'
-import { TEST_ACCOUNT } from '../constants/tests'
+import { errorAction } from '../utils/action'
+import { ETH_NO_ACCOUNTS } from '../constants/error'
+import { TEST_ACCOUNT } from '../constants/testing'
 
 import { fetchAccounts, fetchBalance } from './wallet'
 

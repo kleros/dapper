@@ -1,4 +1,4 @@
-import { constantToCamelCase, camelToTitleCase } from './strings'
+import { constantToCamelCase, camelToTitleCase } from './string'
 
 const constant = 'HELLO_CRYPTO_WORLD'
 const camelCase = 'helloCryptoWorld'

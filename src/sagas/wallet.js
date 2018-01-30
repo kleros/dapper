@@ -5,8 +5,8 @@ import { takeLatest, call, put, select } from 'redux-saga/effects'
 import * as walletActions from '../actions/wallet'
 import * as walletSelectors from '../reducers/wallet'
 import { eth } from '../bootstrap/dapp-api'
-import { receiveAction, errorAction } from '../utils/actions'
-import { ETH_NO_ACCOUNTS } from '../constants/errors'
+import { receiveAction, errorAction } from '../utils/action'
+import { ETH_NO_ACCOUNTS } from '../constants/error'
 
 /**
  * Fetches the current wallet's accounts.
