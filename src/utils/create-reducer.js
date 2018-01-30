@@ -32,17 +32,18 @@ export default function createReducer(initialState, reducerMap) {
         })
         const lResource = resource.toLowerCase()
 
-        newState = {
-          ...newState,
-          [lResource]: {
-            data:
-              typePrefix === 'RECEIVE_' &&
-              (!reducerMap || !reducerMap[action.type])
-                ? action.payload[lResource]
-                : state[lResource].data,
-            ...automaticActionPluginMap[typePrefix]
+        if (state[lResource])
+          newState = {
+            ...newState,
+            [lResource]: {
+              data:
+                typePrefix === 'RECEIVE_' &&
+                (!reducerMap || !reducerMap[action.type])
+                  ? action.payload[lResource]
+                  : state[lResource].data,
+              ...automaticActionPluginMap[typePrefix]
+            }
           }
-        }
         break
       }
     }
