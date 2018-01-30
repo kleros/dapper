@@ -1,5 +1,5 @@
 <p align="center">
-  <b style="font-size: 32px;">Kleros Dapp Front Boilerplate</b>
+  <b style="font-size: 32px;">Dapp Front Boilerplate</b>
 </p>
 
 <p align="center">
@@ -23,13 +23,9 @@
 ```sh
 # Development
 REACT_APP_DEV_ETHEREUM_PROVIDER=http://localhost:8545
-REACT_APP_DEV_STORE_PROVIDER=https://kleros.in
-REACT_APP_DEV_ARBITRATOR_ADDRESS=<address>
 
 # Production
 REACT_APP_PROD_ETHEREUM_PROVIDER=<provider>
-REACT_APP_PROD_STORE_PROVIDER=<provider>
-REACT_APP_PROD_ARBITRATOR_ADDRESS=<address>
 ```
 
 4. Run `yarn` to install dependencies and then `yarn start` to start the dev server.
