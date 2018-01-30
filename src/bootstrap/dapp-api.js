@@ -1,5 +1,4 @@
 import Eth from 'ethjs'
-import { Kleros } from 'kleros-api'
 
 let eth
 if (process.env.NODE_ENV === 'test')
@@ -13,6 +12,4 @@ else
       : process.env.REACT_APP_DEV_ETHEREUM_PROVIDER
   )
 
-const kleros = new Kleros(eth.currentProvider, process.env.STORE_PROVIDER)
-
-export { eth, kleros }
+export { eth }

@@ -1529,7 +1529,7 @@ babel-polyfill@6.26.0, babel-polyfill@^6.3.14:
     core-js "^2.5.0"
     regenerator-runtime "^0.10.5"
 
-babel-preset-env@1.6.1, babel-preset-env@^1.6.0, babel-preset-env@^1.6.1:
+babel-preset-env@1.6.1, babel-preset-env@^1.6.1:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/babel-preset-env/-/babel-preset-env-1.6.1.tgz#a18b564cc9b9afdf4aae57ae3c1b0d99188e6f48"
   dependencies:
@@ -1757,14 +1757,6 @@ bcrypt-pbkdf@^1.0.0:
 big.js@^3.1.3:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/big.js/-/big.js-3.2.0.tgz#a5fc298b81b9e0dca2e458824784b65c52ba588e"
-
-"bignumber.js@git+https://github.com/frozeman/bignumber.js-nolookahead.git":
-  version "2.0.7"
-  resolved "git+https://github.com/frozeman/bignumber.js-nolookahead.git#57692b3ecfc98bbdd6b3a516cb2353652ea49934"
-
-bignumber@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/bignumber/-/bignumber-1.1.0.tgz#e6ab0a743da5f3ea018e5c17597d121f7868c159"
 
 binary-extensions@^1.0.0:
   version "1.11.0"
@@ -2825,14 +2817,6 @@ crypto-browserify@^3.11.0:
     public-encrypt "^4.0.0"
     randombytes "^2.0.0"
     randomfill "^1.0.3"
-
-crypto-js@^3.1.4:
-  version "3.1.8"
-  resolved "https://registry.yarnpkg.com/crypto-js/-/crypto-js-3.1.8.tgz#715f070bf6014f2ae992a98b3929258b713f08d5"
-
-crypto-js@^3.1.9-1:
-  version "3.1.9-1"
-  resolved "https://registry.yarnpkg.com/crypto-js/-/crypto-js-3.1.9-1.tgz#fda19e761fc077e01ffbfdc6e9fdfc59e8806cd8"
 
 crypto-random-string@^1.0.0:
   version "1.0.0"
@@ -3935,25 +3919,11 @@ etag@~1.8.1:
   version "1.8.1"
   resolved "https://registry.yarnpkg.com/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
 
-ethereumjs-testrpc@^4.1.1:
-  version "4.1.3"
-  resolved "https://registry.yarnpkg.com/ethereumjs-testrpc/-/ethereumjs-testrpc-4.1.3.tgz#74db90c9075fdfa3ba2513f08595baac36a86c7e"
-  dependencies:
-    webpack "^3.0.0"
-
 ethereumjs-testrpc@^6.0.3:
   version "6.0.3"
   resolved "https://registry.yarnpkg.com/ethereumjs-testrpc/-/ethereumjs-testrpc-6.0.3.tgz#7a0b87bf3670f92f607f98fa6a78801d9741b124"
   dependencies:
     webpack "^3.0.0"
-
-ethjs-abi@0.1.8:
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/ethjs-abi/-/ethjs-abi-0.1.8.tgz#cd288583ed628cdfadaf8adefa3ba1dbcbca6c18"
-  dependencies:
-    bn.js "4.11.6"
-    js-sha3 "0.5.5"
-    number-to-bn "1.7.0"
 
 ethjs-abi@0.2.0:
   version "0.2.0"
@@ -6112,7 +6082,7 @@ jest-validate@^21.1.0:
     leven "^2.1.0"
     pretty-format "^21.2.1"
 
-jest@20.0.4, jest@^20.0.4:
+jest@20.0.4:
   version "20.0.4"
   resolved "https://registry.yarnpkg.com/jest/-/jest-20.0.4.tgz#3dd260c2989d6dad678b1e9cc4d91944f6d602ac"
   dependencies:
@@ -6308,42 +6278,6 @@ klaw@^1.0.0:
   resolved "https://registry.yarnpkg.com/klaw/-/klaw-1.3.1.tgz#4088433b46b3b1ba259d78785d8e96f73ba02439"
   optionalDependencies:
     graceful-fs "^4.1.9"
-
-kleros-api@^0.0.49:
-  version "0.0.49"
-  resolved "https://registry.yarnpkg.com/kleros-api/-/kleros-api-0.0.49.tgz#b5ccfc0f48ae5f5d96958b1100b818358a327588"
-  dependencies:
-    babel-plugin-transform-runtime "^6.23.0"
-    babel-preset-env "^1.6.0"
-    babel-preset-react "^6.24.1"
-    bignumber "^1.1.0"
-    dotenv-webpack "^1.5.4"
-    esdoc "^1.0.4"
-    esdoc-ecmascript-proposal-plugin "^1.0.0"
-    esdoc-standard-plugin "^1.0.0"
-    ethereumjs-testrpc "^4.1.1"
-    global "^4.3.2"
-    jest "^20.0.4"
-    kleros "^0.0.4"
-    kleros-interaction "^0.0.8"
-    lodash "^4.17.4"
-    truffle-contract "^2.0.5"
-    web3 "^0.20.1"
-
-kleros-interaction@0.0.7:
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/kleros-interaction/-/kleros-interaction-0.0.7.tgz#d588d245b99f03fc8b0d5fb57a683d0e2500efb9"
-
-kleros-interaction@^0.0.8:
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/kleros-interaction/-/kleros-interaction-0.0.8.tgz#84e6db47126b9782687ea332e4cee5120d2efa50"
-
-kleros@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/kleros/-/kleros-0.0.4.tgz#24e7481dfdc1c0adaee55e0ef6568992771e4375"
-  dependencies:
-    kleros-interaction "0.0.7"
-    zeppelin-solidity "^1.3.0"
 
 known-css-properties@^0.5.0:
   version "0.5.0"
@@ -10363,27 +10297,6 @@ trough@^1.0.0:
   dependencies:
     glob "^6.0.4"
 
-truffle-blockchain-utils@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/truffle-blockchain-utils/-/truffle-blockchain-utils-0.0.3.tgz#ae8a111ec124d96504f0e042c6f205c0b3817e29"
-  dependencies:
-    web3 "^0.20.1"
-
-truffle-contract-schema@^0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/truffle-contract-schema/-/truffle-contract-schema-0.0.5.tgz#5e9d20bd0bf2a27fe94310748249d484eee49961"
-  dependencies:
-    crypto-js "^3.1.9-1"
-
-truffle-contract@^2.0.5:
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/truffle-contract/-/truffle-contract-2.0.5.tgz#3394df90ffa927d106ae3b36b33c6debf9117491"
-  dependencies:
-    ethjs-abi "0.1.8"
-    truffle-blockchain-utils "^0.0.3"
-    truffle-contract-schema "^0.0.5"
-    web3 "^0.20.1"
-
 tty-browserify@0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/tty-browserify/-/tty-browserify-0.0.0.tgz#a157ba402da24e9bf957f9aa69d524eed42901a6"
@@ -10630,10 +10543,6 @@ url@^0.11.0:
     punycode "1.3.2"
     querystring "0.2.0"
 
-utf8@^2.1.1:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/utf8/-/utf8-2.1.2.tgz#1fa0d9270e9be850d9b05027f63519bf46457d96"
-
 util-deprecate@^1.0.2, util-deprecate@~1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
@@ -10773,16 +10682,6 @@ wbuf@^1.1.0, wbuf@^1.7.2:
   resolved "https://registry.yarnpkg.com/wbuf/-/wbuf-1.7.2.tgz#d697b99f1f59512df2751be42769c1580b5801fe"
   dependencies:
     minimalistic-assert "^1.0.0"
-
-web3@^0.20.1:
-  version "0.20.4"
-  resolved "https://registry.yarnpkg.com/web3/-/web3-0.20.4.tgz#400e6579a65bb4a3dde71a6ebf6509afadc33a04"
-  dependencies:
-    bignumber.js "git+https://github.com/frozeman/bignumber.js-nolookahead.git"
-    crypto-js "^3.1.4"
-    utf8 "^2.1.1"
-    xhr2 "*"
-    xmlhttprequest "*"
 
 webidl-conversions@^2.0.0:
   version "2.0.1"
@@ -11057,10 +10956,6 @@ xdg-basedir@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/xdg-basedir/-/xdg-basedir-3.0.0.tgz#496b2cc109eca8dbacfe2dc72b603c17c5870ad4"
 
-xhr2@*:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/xhr2/-/xhr2-0.1.4.tgz#7f87658847716db5026323812f818cadab387a5f"
-
 xhr2@0.1.3:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/xhr2/-/xhr2-0.1.3.tgz#cbfc4759a69b4a888e78cf4f20b051038757bd11"
@@ -11072,10 +10967,6 @@ xml-char-classes@^1.0.0:
 "xml-name-validator@>= 2.0.1 < 3.0.0", xml-name-validator@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/xml-name-validator/-/xml-name-validator-2.0.1.tgz#4d8b8f1eccd3419aa362061becef515e1e559635"
-
-xmlhttprequest@*:
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/xmlhttprequest/-/xmlhttprequest-1.8.0.tgz#67fe075c5c24fef39f9d65f5f7b7fe75171968fc"
 
 xtend@^4.0.0, xtend@^4.0.1, xtend@~4.0.1:
   version "4.0.1"
@@ -11169,9 +11060,3 @@ yargs@~3.10.0:
     cliui "^2.1.0"
     decamelize "^1.0.0"
     window-size "0.1.0"
-
-zeppelin-solidity@^1.3.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/zeppelin-solidity/-/zeppelin-solidity-1.5.0.tgz#ddb6db9a37ac13d730358a74cf0bd94faaf5eb5f"
-  dependencies:
-    dotenv "^4.0.0"
