@@ -37,10 +37,10 @@ class Balance extends PureComponent {
             [balance.failedLoading],
             {
               loading: 'Loading...',
-              done: (
+              done: balance.data && (
                 <span>
                   Welcome <Identicon seed="Placeholder" />, You have{' '}
-                  {balance.data && balance.data.toString()} ETH.
+                  {balance.data.toString()} ETH.
                 </span>
               ),
               failed: (
