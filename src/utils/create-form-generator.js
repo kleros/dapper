@@ -236,12 +236,23 @@ function wizardForm(UIKitAndStore, formName, schema, reduxFormOptions) {
     }
 
     handleSubmit = formData => {
+      const { page } = this.state
+      if (page !== lastPageIndex) return this.nextPage()
+
       const { onSubmit } = this.props
       onSubmit(formData)
     }
 
     render() {
-      const { className, disabled } = this.props
+      const {
+        onSubmit,
+        destroy,
+        onPageChange,
+        backHandlerRef,
+        className,
+        disabled,
+        ...rest
+      } = this.props
       const { page } = this.state
       const key = page
       const { Form } = pages[key]
@@ -254,10 +265,9 @@ function wizardForm(UIKitAndStore, formName, schema, reduxFormOptions) {
           >
             <div key={key} style={{ position: 'relative' }}>
               <Form
+                {...rest}
                 disabled={disabled}
-                onSubmit={
-                  page === lastPageIndex ? this.handleSubmit : this.nextPage
-                }
+                onSubmit={this.handleSubmit}
               />
             </div>
           </ReactCSSTransitionGroup>

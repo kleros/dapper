@@ -9,4 +9,5 @@ it('Restarts terminated sagas.', async () => {
   const gen = makeRestartable(saga)()
   expect(gen.next().value).toEqual(call(saga))
   expect(gen.next().value).toEqual(call(delay, 3000))
+  expect(gen.next().value).toEqual(call(saga))
 })
