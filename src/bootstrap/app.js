@@ -6,6 +6,7 @@ import { ConnectedRouter } from 'react-router-redux'
 import { Switch, Route } from 'react-router-dom'
 
 import Balance from '../containers/balance'
+import PageNotFound from '../components/page-not-found'
 
 import Initializer from './initializer'
 
@@ -21,6 +22,7 @@ const App = ({ store, history, testElement }) => (
           </Helmet>
           <Switch>
             <Route exact path="/" component={Balance} />
+            <Route component={PageNotFound} />
           </Switch>
           {testElement}
         </div>
