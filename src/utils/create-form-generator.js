@@ -296,7 +296,7 @@ function wizardForm(UIKitAndStore, formName, schema, reduxFormOptions) {
     // Handlers
     onPageChange: null,
 
-    // Get Handlers
+    // Handler Refs
     backHandlerRef: null,
 
     // Modifiers

@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const TextInput = ({
-  placeholder,
   input: { value, onChange },
   meta: { valid, touched, error },
+  placeholder,
   ...rest
 }) => (
   <div className="TextInput" {...rest}>
@@ -22,10 +22,6 @@ const TextInput = ({
 )
 
 TextInput.propTypes = {
-  // State
-  placeholder: PropTypes.oneOfType([PropTypes.element, PropTypes.string])
-    .isRequired,
-
   // Redux Form
   input: PropTypes.shape({
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -35,7 +31,11 @@ TextInput.propTypes = {
     valid: PropTypes.bool,
     touched: PropTypes.bool,
     error: PropTypes.string
-  }).isRequired
+  }).isRequired,
+
+  // State
+  placeholder: PropTypes.oneOfType([PropTypes.element, PropTypes.string])
+    .isRequired
 }
 
 export default TextInput
