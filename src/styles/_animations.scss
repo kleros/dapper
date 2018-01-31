@@ -1,0 +1,24 @@
+// Carousel
+.carousel-enter {
+  left: 200px;
+  opacity: 0;
+  transition: left 800ms ease-in, opacity 800ms ease-in;
+}
+
+.carousel-enter.carousel-enter-active {
+  left: 0;
+  opacity: 1;
+  transition: left 800ms ease-in, opacity 800ms ease-in;
+}
+
+.carousel-leave {
+  left: 0;
+  opacity: 1;
+  transition: left 800ms ease-in, opacity 800ms ease-in;
+}
+
+.carousel-leave.carousel-leave-active {
+  left: -200px;
+  opacity: 0;
+  transition: left 800ms ease-in, opacity 800ms ease-in;
+}
