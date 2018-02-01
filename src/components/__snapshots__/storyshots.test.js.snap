@@ -42,7 +42,7 @@ exports[`Storyshots Button primary 1`] = `
           }
         }
       >
-        Kleros UI-Kit
+        Dapp Front Boilerplate UI-Kit
       </h2>
     </div>
     <div
@@ -307,7 +307,7 @@ exports[`Storyshots Button with lots of text 1`] = `
           }
         }
       >
-        Kleros UI-Kit
+        Dapp Front Boilerplate UI-Kit
       </h2>
     </div>
     <div
@@ -572,7 +572,7 @@ exports[`Storyshots Identicon with placeholder seed 1`] = `
           }
         }
       >
-        Kleros UI-Kit
+        Dapp Front Boilerplate UI-Kit
       </h2>
     </div>
     <div
@@ -830,7 +830,7 @@ exports[`Storyshots Page Not Found default 1`] = `
           }
         }
       >
-        Kleros UI-Kit
+        Dapp Front Boilerplate UI-Kit
       </h2>
     </div>
     <div
@@ -1094,7 +1094,7 @@ exports[`Storyshots Requires MetaMask needs unlock 1`] = `
           }
         }
       >
-        Kleros UI-Kit
+        Dapp Front Boilerplate UI-Kit
       </h2>
     </div>
     <div
@@ -1368,7 +1368,7 @@ exports[`Storyshots Requires MetaMask not found 1`] = `
           }
         }
       >
-        Kleros UI-Kit
+        Dapp Front Boilerplate UI-Kit
       </h2>
     </div>
     <div
@@ -1642,7 +1642,7 @@ exports[`Storyshots Text Input default 1`] = `
           }
         }
       >
-        Kleros UI-Kit
+        Dapp Front Boilerplate UI-Kit
       </h2>
     </div>
     <div

@@ -9,7 +9,7 @@ import '../src/bootstrap/app.css'
 
 addDecorator(
   host({
-    title: 'Kleros UI-Kit',
+    title: 'Dapp Front Boilerplate UI-Kit',
     align: 'center middle'
   })
 )
