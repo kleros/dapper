@@ -1,26 +1,24 @@
 import PropTypes from 'prop-types'
 
-import createReducer from '../utils/create-reducer'
-import { createShape } from '../utils/react-redux'
+import createReducer, { createResource } from '../utils/redux'
+
+// Shapes
+const {
+  shape: accountsShape,
+  initialState: accountsInitialState
+} = createResource(PropTypes.arrayOf(PropTypes.string))
+const {
+  shape: balanceShape,
+  initialState: balanceInitialState
+} = createResource(PropTypes.string)
+export { accountsShape, balanceShape }
 
 // Reducer
 export default createReducer({
-  accounts: {
-    loading: false,
-    data: null,
-    failedLoading: false
-  },
-  balance: {
-    loading: false,
-    data: null,
-    failedLoading: false
-  }
+  accounts: accountsInitialState,
+  balance: balanceInitialState
 })
 
 // Selectors
 export const getAccount = state =>
   state.wallet.accounts.data && state.wallet.accounts.data[0]
-
-// Shapes
-export const accountsShape = createShape(PropTypes.arrayOf(PropTypes.string))
-export const balanceShape = createShape(PropTypes.string)

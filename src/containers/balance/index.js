@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 import * as walletActions from '../../actions/wallet'
 import * as walletSelectors from '../../reducers/wallet'
-import { renderIf } from '../../utils/react-redux'
+import { renderIf } from '../../utils/redux'
 import Identicon from '../../components/identicon'
 
 import './balance.css'
@@ -31,32 +31,27 @@ class Balance extends PureComponent {
         <br />
         <br />
         <div className="Balance-message">
-          {renderIf(
-            [balance.loading],
-            [balance.data],
-            [balance.failedLoading],
-            {
-              loading: 'Loading...',
-              done: balance.data && (
-                <span>
-                  Welcome <Identicon seed="Placeholder" />, You have{' '}
-                  {balance.data.toString()} ETH.
-                </span>
-              ),
-              failed: (
-                <span>
-                  There was an error fetching your balance. Make sure{' '}
-                  <a
-                    className="Balance-message-link"
-                    href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en"
-                  >
-                    MetaMask
-                  </a>{' '}
-                  is unlocked and refresh the page.
-                </span>
-              )
-            }
-          )}
+          {renderIf(balance, {
+            loading: 'Loading balance...',
+            done: balance.data && (
+              <span>
+                Welcome <Identicon seed="Placeholder" />, You have{' '}
+                {balance.data.toString()} ETH.
+              </span>
+            ),
+            failedLoading: (
+              <span>
+                There was an error fetching your balance. Make sure{' '}
+                <a
+                  className="Home-message-link"
+                  href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en"
+                >
+                  MetaMask
+                </a>{' '}
+                is unlocked and refresh the page.
+              </span>
+            )
+          })}
         </div>
       </div>
     )

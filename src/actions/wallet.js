@@ -1,11 +1,17 @@
-// Actions
-export const FETCH_ACCOUNTS = 'FETCH_ACCOUNTS'
-export const RECEIVE_ACCOUNTS = 'RECEIVE_ACCOUNTS'
-export const FAIL_FETCH_ACCOUNTS = 'FAIL_FETCH_ACCOUNTS'
-export const FETCH_BALANCE = 'FETCH_BALANCE'
-export const RECEIVE_BALANCE = 'RECEIVE_BALANCE'
-export const FAIL_FETCH_BALANCE = 'FAIL_FETCH_BALANCE'
+import { createActions } from '../utils/redux'
 
-// Action Creators
-export const fetchAccounts = () => ({ type: FETCH_ACCOUNTS })
-export const fetchBalance = () => ({ type: FETCH_BALANCE })
+/* Actions */
+
+// Accounts
+export const accounts = createActions('ACCOUNTS')
+
+// Balance
+export const balance = createActions('BALANCE')
+
+/* Action Creators */
+
+// Accounts
+export const fetchAccounts = () => ({ type: accounts.FETCH })
+
+// Balance
+export const fetchBalance = () => ({ type: balance.FETCH })

@@ -1,5 +1,6 @@
-export const receiveAction = (type, payload) => ({
+export const action = (type, payload, meta) => ({
   type,
-  payload
+  payload,
+  meta
 })
 export const errorAction = (type, err) => ({ type, payload: err, error: true })
