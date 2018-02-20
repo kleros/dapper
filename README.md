@@ -1,5 +1,5 @@
 <p align="center">
-  <b style="font-size: 32px;">Dapp Front Boilerplate</b>
+  <b style="font-size: 32px;">dapper</b>
 </p>
 
 <p align="center">
@@ -13,6 +13,8 @@
   <a href="http://commitizen.github.io/cz-cli/"><img src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg" alt="Commitizen Friendly"></a>
   <a href="https://github.com/prettier/prettier"><img src="https://img.shields.io/badge/styled_with-prettier-ff69b4.svg" alt="Styled with Prettier"></a>
 </p>
+
+A boilerplate for Ethereum dapps.
 
 ## Get Started
 

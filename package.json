@@ -1,7 +1,7 @@
 {
-  "name": "dapp-front-boilerplate",
+  "name": "dapper",
   "version": "0.1.0",
-  "description": "A boilerplate for Ethereum Dapps.",
+  "description": "A boilerplate for Ethereum dapps.",
   "keywords": ["blockchain", "ethereum", "dapp", "boilerplate", "frontend"],
   "repository": "https://github.com/kleros/dapp-front-boilerplate",
   "author": "Kleros",
