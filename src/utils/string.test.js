@@ -2,7 +2,9 @@ import { constantToCamelCase, camelToTitleCase } from './string'
 
 const constant = 'HELLO_CRYPTO_WORLD'
 const camelCase = 'helloCryptoWorld'
-const capitalizeFirst = 'HelloCryptoWorld'
+const capitalizeFirstCamelCase = 'HelloCryptoWorld'
+const constantWith$ = '$HELLO$_WORLD'
+const camelCaseWith$ = 'HELLOWorld'
 const titleCase = 'Hello Crypto World'
 
 describe('constantToCamelCase', () => {
@@ -10,8 +12,10 @@ describe('constantToCamelCase', () => {
     expect(constantToCamelCase(constant)).toBe(camelCase))
   it('converts constant case strings to camel case and capitalizes the first letter.', () =>
     expect(constantToCamelCase(constant, { capitalizeFirst: true })).toBe(
-      capitalizeFirst
+      capitalizeFirstCamelCase
     ))
+  it('converts constant case strings to camel case and ignores chars between `$` chars.', () =>
+    expect(constantToCamelCase(constantWith$)).toBe(camelCaseWith$))
 })
 
 describe('camelToTitleCase', () =>

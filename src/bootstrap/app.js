@@ -18,12 +18,14 @@ const App = ({ store, history, testElement }) => (
       <ConnectedRouter history={history}>
         <div id="router-root">
           <Helmet>
-            <title>Dapp Front Boilerplate</title>
+            <title>Kleros Dapp</title>
           </Helmet>
-          <Switch>
-            <Route exact path="/" component={Balance} />
-            <Route component={PageNotFound} />
-          </Switch>
+          <div id="scroll-root">
+            <Switch>
+              <Route exact path="/" component={Balance} />
+              <Route component={PageNotFound} />
+            </Switch>
+          </div>
           {testElement}
         </div>
       </ConnectedRouter>

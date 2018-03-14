@@ -6,6 +6,11 @@ import Button from '../src/components/button'
 
 storiesOf('Button', module)
   .add('primary', () => <Button onClick={action('onClick')}>CLICK ME</Button>)
+  .add('disabled', () => (
+    <Button onClick={action('onClick')} disabled>
+      CLICK ME
+    </Button>
+  ))
   .add('with lots of text', () => (
     <Button onClick={action('onClick')}>CLICK ME, CLICK ME, CLICK ME</Button>
   ))

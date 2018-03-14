@@ -1,8 +1,30 @@
-$white: #fff;
+// Bases
+$light: #fff;
+$light2: #e6eaee;
+$light3: rgba(216, 216, 216, 0.38);
+$dark: #3d464d;
+$dark2: #47525d;
+$dark3: #a3a2a5;
 
-$background: $white;
+// States
+$disabled: #77909d;
+$info: #337ab7;
+$warning: #f0ad4e;
+$success: #8dc572;
+$error: #be6464;
 
+// Typography
+$heading: $dark;
+$text: $dark2;
+
+// Backgrounds
+$background: #ededed;
+$darkBackground: $dark;
+
+/* Specifics */
+
+// Button
 $buttonGradientStart: #0059ab;
 $buttonGradientEnd: #0468c4;
 $buttonBoxShadow: #024e95;
-$buttonText: $white;
+$buttonText: $light;

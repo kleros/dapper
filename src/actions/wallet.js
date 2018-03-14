@@ -1,4 +1,4 @@
-import { createActions } from '../utils/redux'
+import { createActions } from 'lessdux'
 
 /* Actions */
 

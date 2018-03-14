@@ -20,6 +20,6 @@ it('Renders and loads balance correctly.', async () => {
   await flushPromises()
   app.update()
   expect(app.find(Balance).text()).toBe(
-    'Hello CryptoWorldWelcome [Blockies], You have 100 ETH.'
+    'Hello CryptoWorldWelcome [Identicon], You have 100 ETH.'
   )
 })

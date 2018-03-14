@@ -19,10 +19,12 @@ export function makeRestartable(saga) {
           `Unexpected root saga termination. The root sagas are supposed to be sagas that live during the whole app lifetime! ${saga}`
         )
       } catch (err) {
-        console.info(
-          'Saga error, the saga will be restarted after 3 seconds.',
-          err
-        )
+        /* istanbul ignore if  */
+        if (process.env.NODE_ENV !== 'test')
+          console.info(
+            'Saga error, the saga will be restarted after 3 seconds.',
+            err
+          )
         yield call(delay, 3000)
       }
     }
@@ -33,7 +35,6 @@ const rootSagas = [walletSaga].map(makeRestartable)
 
 /**
  * The root saga.
- * @export default rootSaga
  */
 export default function* rootSaga() {
   yield all(rootSagas.map(saga => spawn(saga)))

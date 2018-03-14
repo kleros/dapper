@@ -7,6 +7,7 @@ import { MemoryRouter } from 'react-router-dom'
 
 import '../src/bootstrap/app.css'
 
+// Storybook Host
 addDecorator(
   host({
     title: 'Dapp Front Boilerplate UI-Kit',
@@ -14,6 +15,7 @@ addDecorator(
   })
 )
 
+// Integration Wrapper
 const store = createStore(
   combineReducers({}),
   applyMiddleware(store => next => action => {
@@ -30,4 +32,5 @@ addDecorator(story => (
   </Provider>
 ))
 
+// Configure
 configure(() => require('../stories/index.js'), module)

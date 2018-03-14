@@ -1,12 +1,12 @@
 import unit from 'ethjs-unit'
 
-import { takeLatest, call, put, select } from 'redux-saga/effects'
+import { takeLatest, select, call, put } from 'redux-saga/effects'
 
 import * as walletSelectors from '../reducers/wallet'
 import * as walletActions from '../actions/wallet'
 import { eth } from '../bootstrap/dapp-api'
 import { action, errorAction } from '../utils/action'
-import { ETH_NO_ACCOUNTS } from '../constants/error'
+import * as errorConstants from '../constants/error'
 
 /**
  * Fetches the current wallet's accounts.
@@ -14,7 +14,7 @@ import { ETH_NO_ACCOUNTS } from '../constants/error'
 export function* fetchAccounts() {
   try {
     const accounts = yield call(eth.accounts)
-    if (!accounts[0]) throw new Error(ETH_NO_ACCOUNTS)
+    if (!accounts[0]) throw new Error(errorConstants.ETH_NO_ACCOUNTS)
 
     yield put(action(walletActions.accounts.RECEIVE, { accounts }))
   } catch (err) {
@@ -42,7 +42,6 @@ export function* fetchBalance() {
 
 /**
  * The root of the wallet saga.
- * @export default walletSaga
  */
 export default function* walletSaga() {
   // Accounts

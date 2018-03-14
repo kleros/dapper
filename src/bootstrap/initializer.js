@@ -1,19 +1,27 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { RenderIf } from 'lessdux'
 
-import * as walletActions from '../actions/wallet'
 import * as walletSelectors from '../reducers/wallet'
-import { renderIf } from '../utils/redux'
+import * as walletActions from '../actions/wallet'
 import RequiresMetaMask from '../components/requires-meta-mask'
 
 import { eth } from './dapp-api'
 
 class Initializer extends PureComponent {
   static propTypes = {
+    // Redux State
     accounts: walletSelectors.accountsShape.isRequired,
+
+    // Action Dispatchers
     fetchAccounts: PropTypes.func.isRequired,
-    children: PropTypes.element.isRequired
+
+    // State
+    children: PropTypes.oneOfType([
+      PropTypes.element,
+      PropTypes.arrayOf(PropTypes.element.isRequired)
+    ]).isRequired
   }
 
   state = { isWeb3Loaded: eth.accounts !== undefined }
@@ -27,17 +35,15 @@ class Initializer extends PureComponent {
     const { isWeb3Loaded } = this.state
     const { accounts, children } = this.props
 
-    return renderIf(
-      accounts,
-      {
-        loading: 'Loading accounts...',
-        done: children,
-        failedLoading: <RequiresMetaMask needsUnlock={isWeb3Loaded} />
-      },
-      {
-        extraValues: [accounts.data && accounts.data[0]],
-        extraFailedValues: [!isWeb3Loaded]
-      }
+    return (
+      <RenderIf
+        resource={accounts}
+        loading="Loading..."
+        done={children}
+        failedLoading={<RequiresMetaMask needsUnlock={isWeb3Loaded} />}
+        extraValues={[accounts.data && accounts.data[0]]}
+        extraFailedValues={[!isWeb3Loaded]}
+      />
     )
   }
 }

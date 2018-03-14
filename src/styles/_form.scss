@@ -1,0 +1,25 @@
+/* @define Form */
+.Form {
+  &-noMargins {
+    margin: 0;
+  }
+
+  &-noSideMargins {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* @define WizardForm */
+.WizardForm {
+  &-form {
+    &-noMarginsWizard {
+      margin: 0;
+    }
+
+    &-noSideMarginsWizard {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+}

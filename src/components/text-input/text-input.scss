@@ -1,0 +1,57 @@
+@import '../../styles/_colors.scss';
+
+/* @define TextInput */
+.TextInput {
+  background: #fff;
+  border: 1px solid #dfe3e9;
+  border-radius: 4px;
+  font-size: 14px;
+  height: 45px;
+  margin: 0.5rem;
+  position: relative;
+  width: 200px;
+
+  &.is-error {
+    border-color: $error;
+  }
+
+  &.is-valid {
+    border-color: $success;
+  }
+
+  &-input {
+    background: none;
+    border: none;
+    height: 100%;
+    outline: none;
+    padding: 0 5px;
+    width: 100%;
+  }
+
+  &-placeholder {
+    color: $disabled;
+    left: 5px;
+    pointer-events: none;
+    position: absolute;
+    text-transform: uppercase;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.2s font-size, 0.2s transform, 0.2s top;
+
+    .TextInput-input:focus + &,
+    &.is-touched {
+      font-size: 8px;
+      line-height: 8px;
+      top: 5px;
+      transform: none;
+    }
+  }
+
+  &-error {
+    bottom: 0;
+    color: $error;
+    font-size: 8px;
+    left: 5px;
+    position: absolute;
+  }
+}

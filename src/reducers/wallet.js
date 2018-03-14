@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
-
-import createReducer, { createResource } from '../utils/redux'
+import createReducer, { createResource } from 'lessdux'
 
 // Shapes
 const {

@@ -3,26 +3,42 @@ import PropTypes from 'prop-types'
 
 import './button.css'
 
-const Button = ({ children, onClick, className }) => (
-  <div className={`Button ${className}`} onClick={onClick}>
-    <h4 className="Button-label">{children}</h4>
+const Button = ({
+  children,
+  onClick,
+  disabled,
+  className,
+  labelClassName,
+  ...rest
+}) => (
+  <div
+    className={`Button ${disabled ? 'is-disabled' : ''} ${className}`}
+    onClick={onClick}
+    {...rest}
+  >
+    <h5 className={`Button-label ${labelClassName}`}>{children}</h5>
   </div>
 )
 
 Button.propTypes = {
   // State
-  children: PropTypes.string.isRequired,
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
+    .isRequired,
 
   // Handlers
   onClick: PropTypes.func.isRequired,
 
   // Modifiers
-  className: PropTypes.string
+  disabled: PropTypes.bool,
+  className: PropTypes.string,
+  labelClassName: PropTypes.string
 }
 
 Button.defaultProps = {
   // Modifiers
-  className: ''
+  disabled: false,
+  className: '',
+  labelClassName: ''
 }
 
 export default Button

@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { RenderIf } from 'lessdux'
 
 import * as walletActions from '../../actions/wallet'
 import * as walletSelectors from '../../reducers/wallet'
-import { renderIf } from '../../utils/redux'
 import Identicon from '../../components/identicon'
 
 import './balance.css'
@@ -31,15 +31,18 @@ class Balance extends PureComponent {
         <br />
         <br />
         <div className="Balance-message">
-          {renderIf(balance, {
-            loading: 'Loading balance...',
-            done: balance.data && (
-              <span>
-                Welcome <Identicon seed="Placeholder" />, You have{' '}
-                {balance.data.toString()} ETH.
-              </span>
-            ),
-            failedLoading: (
+          <RenderIf
+            resource={balance}
+            loading="Loading balance..."
+            done={
+              balance.data && (
+                <span>
+                  Welcome <Identicon seed="Placeholder" />, You have{' '}
+                  {balance.data.toString()} ETH.
+                </span>
+              )
+            }
+            failedLoading={
               <span>
                 There was an error fetching your balance. Make sure{' '}
                 <a
@@ -50,8 +53,8 @@ class Balance extends PureComponent {
                 </a>{' '}
                 is unlocked and refresh the page.
               </span>
-            )
-          })}
+            }
+          />
         </div>
       </div>
     )
