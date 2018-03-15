@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "description": "A boilerplate for Ethereum dapps.",
   "keywords": ["blockchain", "ethereum", "dapp", "boilerplate", "frontend"],
-  "repository": "https://github.com/kleros/dapp-front-boilerplate",
+  "repository": "https://github.com/kleros/dapper",
   "author": "Kleros",
   "license": "MIT",
   "private": true,
