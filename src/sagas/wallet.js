@@ -1,43 +1,35 @@
 import unit from 'ethjs-unit'
 
-import { takeLatest, select, call, put } from 'redux-saga/effects'
+import { takeLatest, select, call } from 'redux-saga/effects'
 
 import * as walletSelectors from '../reducers/wallet'
 import * as walletActions from '../actions/wallet'
 import { eth } from '../bootstrap/dapp-api'
-import { action, errorAction } from '../utils/action'
+import { fetchSaga } from '../utils/saga'
 import * as errorConstants from '../constants/error'
 
 /**
  * Fetches the current wallet's accounts.
+ * @returns {object[]} - The accounts.
  */
 export function* fetchAccounts() {
-  try {
-    const accounts = yield call(eth.accounts)
-    if (!accounts[0]) throw new Error(errorConstants.ETH_NO_ACCOUNTS)
+  const accounts = yield call(eth.accounts)
+  if (!accounts[0]) throw new Error(errorConstants.ETH_NO_ACCOUNTS)
 
-    yield put(action(walletActions.accounts.RECEIVE, { accounts }))
-  } catch (err) {
-    yield put(errorAction(walletActions.accounts.FAIL_FETCH, err))
-  }
+  return accounts
 }
 
 /**
  * Fetches the current wallet's ethereum balance.
+ * @returns {number} - The balance.
  */
 export function* fetchBalance() {
-  try {
-    const account = yield select(walletSelectors.getAccount)
-    const balance = yield call(eth.getBalance, account)
+  const balance = yield call(
+    eth.getBalance,
+    yield select(walletSelectors.getAccount)
+  )
 
-    yield put(
-      action(walletActions.balance.RECEIVE, {
-        balance: unit.fromWei(balance, 'ether')
-      })
-    )
-  } catch (err) {
-    yield put(errorAction(walletActions.balance.FAIL_FETCH, err))
-  }
+  return unit.fromWei(balance, 'ether')
 }
 
 /**
@@ -45,8 +37,18 @@ export function* fetchBalance() {
  */
 export default function* walletSaga() {
   // Accounts
-  yield takeLatest(walletActions.accounts.FETCH, fetchAccounts)
+  yield takeLatest(
+    walletActions.accounts.FETCH,
+    fetchSaga,
+    walletActions.accounts,
+    fetchAccounts
+  )
 
   // Balance
-  yield takeLatest(walletActions.balance.FETCH, fetchBalance)
+  yield takeLatest(
+    walletActions.balance.FETCH,
+    fetchSaga,
+    walletActions.balance,
+    fetchBalance
+  )
 }
