@@ -6710,9 +6710,9 @@ lcov-parse@^0.0.10:
   version "0.0.10"
   resolved "https://registry.yarnpkg.com/lcov-parse/-/lcov-parse-0.0.10.tgz#1b0b8ff9ac9c7889250582b70b71315d9da6d9a3"
 
-lessdux@^0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/lessdux/-/lessdux-0.1.2.tgz#e60d1a5b3ad7f5145aaac44faf4deb9de2c99fb0"
+lessdux@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/lessdux/-/lessdux-0.2.0.tgz#77add730f63b15d373b4ed5f7d2b43f970084e9c"
   dependencies:
     prop-types "^15.6.0"
 
