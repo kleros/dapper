@@ -70,7 +70,7 @@
     "timezone-mock": "^0.0.7"
   },
   "dependencies": {
-    "create-redux-form": "^0.1.1",
+    "create-redux-form": "^0.1.2",
     "ethjs": "^0.3.3",
     "ethjs-unit": "^0.1.6",
     "history": "^4.7.2",

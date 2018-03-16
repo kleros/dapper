@@ -2985,9 +2985,9 @@ create-react-class@^15.5.2, create-react-class@^15.6.2:
     loose-envify "^1.3.1"
     object-assign "^4.1.1"
 
-create-redux-form@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/create-redux-form/-/create-redux-form-0.1.1.tgz#e7c21474ccf28bf9db78d9bce4dda6d40a71bf7f"
+create-redux-form@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/create-redux-form/-/create-redux-form-0.1.2.tgz#4b1aa93bd07a2b332f4a7438b728ff019ff92376"
   dependencies:
     prop-types "^15.6.0"
     react-addons-css-transition-group "^15.6.2"
