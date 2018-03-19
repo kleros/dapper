@@ -9,6 +9,10 @@
     padding-top: 10%;
     text-align: center;
 
+    &-identicon {
+      display: inline-block;
+    }
+
     &-link {
       color: #999;
       text-decoration: none;

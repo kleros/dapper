@@ -37,8 +37,11 @@ class Balance extends PureComponent {
             done={
               balance.data && (
                 <span>
-                  Welcome <Identicon seed="Placeholder" />, You have{' '}
-                  {balance.data.toString()} ETH.
+                  Welcome{' '}
+                  <Identicon
+                    seed="Placeholder"
+                    className="Balance-message-identicon"
+                  />, You have {balance.data.toString()} ETH.
                 </span>
               )
             }
@@ -46,7 +49,7 @@ class Balance extends PureComponent {
               <span>
                 There was an error fetching your balance. Make sure{' '}
                 <a
-                  className="Home-message-link"
+                  className="Balance-message-link"
                   href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en"
                 >
                   MetaMask
