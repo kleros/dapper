@@ -23,14 +23,20 @@ beforeEach(() => {
 
 const schema = {
   payment: {
-    type: 'number',
+    type: 'text',
     placeholder: 'Payment (ETH)',
-    validate: [required, number]
+    validate: [required, number],
+    props: {
+      type: 'number'
+    }
   },
   timeout: {
-    type: 'number',
+    type: 'text',
     visibleIf: 'payment',
-    validate: [required, number]
+    validate: [required, number],
+    props: {
+      type: 'number'
+    }
   },
   partyB: {
     type: 'text',
@@ -51,12 +57,18 @@ const schema = {
 
 const schema2 = {
   payment2: {
-    type: 'number',
-    placeholder: 'Payment (ETH)'
+    type: 'text',
+    placeholder: 'Payment (ETH)',
+    props: {
+      type: 'number'
+    }
   },
   timeout2: {
-    type: 'number',
-    visibleIf: 'payment'
+    type: 'text',
+    visibleIf: 'payment',
+    props: {
+      type: 'number'
+    }
   },
   partyB2: {
     type: 'text',
@@ -77,12 +89,18 @@ const schema2 = {
 
 const schema3 = {
   payment3: {
-    type: 'number',
-    placeholder: 'Payment (ETH)'
+    type: 'text',
+    placeholder: 'Payment (ETH)',
+    props: {
+      type: 'number'
+    }
   },
   timeout3: {
-    type: 'number',
-    visibleIf: 'payment'
+    type: 'text',
+    visibleIf: 'payment',
+    props: {
+      type: 'number'
+    }
   },
   partyB3: {
     type: 'text',

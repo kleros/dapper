@@ -7,6 +7,7 @@ const TextInput = ({
   input: { value, onChange },
   meta: { touched, valid, error },
   placeholder,
+  type,
   className
 }) => (
   <div
@@ -15,8 +16,8 @@ const TextInput = ({
     } ${className}`}
   >
     <input
+      type={type}
       className="TextInput-input"
-      type="text"
       value={value}
       onChange={onChange}
     />
@@ -50,6 +51,7 @@ TextInput.propTypes = {
     .isRequired,
 
   // Modifiers
+  type: PropTypes.string,
   className: PropTypes.string
 }
 
@@ -58,6 +60,7 @@ TextInput.defaultProps = {
   meta: {},
 
   // Modifiers
+  type: 'text',
   className: ''
 }
 

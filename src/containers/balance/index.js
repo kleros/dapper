@@ -11,7 +11,10 @@ import './balance.css'
 
 class Balance extends PureComponent {
   static propTypes = {
+    // Redux State
     balance: walletSelectors.balanceShape.isRequired,
+
+    // Action Dispatchers
     fetchBalance: PropTypes.func.isRequired
   }
 
