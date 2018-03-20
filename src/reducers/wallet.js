@@ -5,7 +5,7 @@ import createReducer, { createResource } from 'lessdux'
 const {
   shape: accountsShape,
   initialState: accountsInitialState
-} = createResource(PropTypes.arrayOf(PropTypes.string))
+} = createResource(PropTypes.arrayOf(PropTypes.string.isRequired))
 const {
   shape: balanceShape,
   initialState: balanceInitialState
