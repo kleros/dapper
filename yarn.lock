@@ -4467,7 +4467,7 @@ ethjs-schema@0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/ethjs-schema/-/ethjs-schema-0.2.0.tgz#07b46d4f55b792a846c90a79f330d31d112cca38"
 
-ethjs-unit@0.1.6, ethjs-unit@^0.1.6:
+ethjs-unit@0.1.6:
   version "0.1.6"
   resolved "https://registry.yarnpkg.com/ethjs-unit/-/ethjs-unit-0.1.6.tgz#c665921e476e87bce2a9d588a6fe0405b2c41699"
   dependencies:

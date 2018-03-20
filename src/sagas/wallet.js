@@ -1,4 +1,4 @@
-import unit from 'ethjs-unit'
+import Eth from 'ethjs'
 
 import { takeLatest, select, call } from 'redux-saga/effects'
 
@@ -29,7 +29,7 @@ export function* fetchBalance() {
     yield select(walletSelectors.getAccount)
   )
 
-  return unit.fromWei(balance, 'ether')
+  return Eth.fromWei(balance, 'ether')
 }
 
 /**

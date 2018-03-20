@@ -72,7 +72,6 @@
   "dependencies": {
     "create-redux-form": "^0.1.2",
     "ethjs": "^0.3.3",
-    "ethjs-unit": "^0.1.6",
     "history": "^4.7.2",
     "lessdux": "^0.3.0",
     "normalize.css": "^7.0.0",
