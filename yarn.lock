@@ -7016,9 +7016,9 @@ klaw@^1.0.0:
   optionalDependencies:
     graceful-fs "^4.1.9"
 
-kleros-scripts@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/kleros-scripts/-/kleros-scripts-0.4.0.tgz#2ea8849e8673e9e64ed7c3364107d81bc9da384b"
+kleros-scripts@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/kleros-scripts/-/kleros-scripts-0.5.0.tgz#df9c0729c698552ea10c0be58c393379c819fb6d"
   dependencies:
     "@commitlint/cli" "^6.1.0"
     "@commitlint/config-conventional" "^6.1.0"
