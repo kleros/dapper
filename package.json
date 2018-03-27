@@ -20,11 +20,11 @@
     "start:scss": "yarn run build:scss && yarn run build:scss --watch",
     "start:js": "react-scripts start",
     "start:storybook": "start-storybook -p 9001 -c .storybook",
-    "storybook": "npm-run-all -p start:scss start:storybook",
+    "storybook": "run-p start:scss start:storybook",
     "build:scss": "node-sass-chokidar ./src -o ./src",
     "build:js": "react-scripts build",
-    "start": "npm-run-all -p start:scss start:js",
-    "build": "npm-run-all build:scss build:js",
+    "start": "run-p start:scss start:js",
+    "build": "yarn run build:scss && yarn run build:js",
     "build:analyze": "source-map-explorer build/static/js/main.*"
   },
   "jest": {
