@@ -21,10 +21,12 @@ const RequiresMetaMask = ({ needsUnlock }) => (
 )
 
 RequiresMetaMask.propTypes = {
+  // State
   needsUnlock: PropTypes.bool
 }
 
 RequiresMetaMask.defaultProps = {
+  // State
   needsUnlock: false
 }
 
