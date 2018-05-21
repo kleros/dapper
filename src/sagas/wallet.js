@@ -1,10 +1,8 @@
-import Eth from 'ethjs'
-
 import { takeLatest, select, call } from 'redux-saga/effects'
 
 import * as walletSelectors from '../reducers/wallet'
 import * as walletActions from '../actions/wallet'
-import { eth } from '../bootstrap/dapp-api'
+import { web3 } from '../bootstrap/dapp-api'
 import { fetchSaga } from '../utils/saga'
 import * as errorConstants from '../constants/error'
 
@@ -13,7 +11,7 @@ import * as errorConstants from '../constants/error'
  * @returns {object[]} - The accounts.
  */
 export function* fetchAccounts() {
-  const accounts = yield call(eth.accounts)
+  const accounts = yield call(web3.eth.getAccounts)
   if (!accounts[0]) throw new Error(errorConstants.ETH_NO_ACCOUNTS)
 
   return accounts
@@ -25,11 +23,11 @@ export function* fetchAccounts() {
  */
 export function* fetchBalance() {
   const balance = yield call(
-    eth.getBalance,
+    web3.eth.getBalance,
     yield select(walletSelectors.getAccount)
   )
 
-  return Eth.fromWei(balance, 'ether')
+  return web3.utils.fromWei(balance, 'ether')
 }
 
 /**

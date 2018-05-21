@@ -71,7 +71,6 @@
   },
   "dependencies": {
     "create-redux-form": "^0.1.2",
-    "ethjs": "^0.3.3",
     "history": "^4.7.2",
     "lessdux": "^0.3.0",
     "normalize.css": "^8.0.0",
@@ -86,6 +85,7 @@
     "react-scripts": "1.1.1",
     "redux": "^3.7.2",
     "redux-form": "^7.2.3",
-    "redux-saga": "^0.16.0"
+    "redux-saga": "^0.16.0",
+    "web3": "^1.0.0-beta.34"
   }
 }

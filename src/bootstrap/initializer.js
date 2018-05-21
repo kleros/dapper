@@ -7,7 +7,7 @@ import * as walletSelectors from '../reducers/wallet'
 import * as walletActions from '../actions/wallet'
 import RequiresMetaMask from '../components/requires-meta-mask'
 
-import { eth } from './dapp-api'
+import { web3 } from './dapp-api'
 
 class Initializer extends PureComponent {
   static propTypes = {
@@ -24,7 +24,7 @@ class Initializer extends PureComponent {
     ]).isRequired
   }
 
-  state = { isWeb3Loaded: eth.accounts !== undefined }
+  state = { isWeb3Loaded: web3.eth.getAccounts !== undefined }
 
   componentDidMount() {
     const { fetchAccounts } = this.props
