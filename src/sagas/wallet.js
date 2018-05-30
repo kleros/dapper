@@ -3,7 +3,7 @@ import { takeLatest, select, call } from 'redux-saga/effects'
 import * as walletSelectors from '../reducers/wallet'
 import * as walletActions from '../actions/wallet'
 import { web3 } from '../bootstrap/dapp-api'
-import { fetchSaga } from '../utils/saga'
+import { lessduxSaga } from '../utils/saga'
 import * as errorConstants from '../constants/error'
 
 /**
@@ -37,7 +37,8 @@ export default function* walletSaga() {
   // Accounts
   yield takeLatest(
     walletActions.accounts.FETCH,
-    fetchSaga,
+    lessduxSaga,
+    'fetch',
     walletActions.accounts,
     fetchAccounts
   )
@@ -45,7 +46,8 @@ export default function* walletSaga() {
   // Balance
   yield takeLatest(
     walletActions.balance.FETCH,
-    fetchSaga,
+    lessduxSaga,
+    'fetch',
     walletActions.balance,
     fetchBalance
   )

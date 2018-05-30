@@ -15,7 +15,7 @@ export function flushPromises() {
 /**
  * Sets up an integration test environment.
  * @param {object} [initialState={}] - The initial state.
- * @returns {{ store: object, dispatchSpy: function, mountTest: function, form: function, wizardForm: function }} - Utilities for testing and the create-redux-form functions to test.
+ * @returns {{ store: object, history: object, dispatchSpy: function, mountApp: function }} - Utilities for testing and the create-redux-form functions to test.
  */
 export default function setupIntegrationTest(initialState = {}) {
   const dispatchSpy = jest.fn(() => ({}))
