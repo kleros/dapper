@@ -11,7 +11,11 @@ const Identicon = ({ seed, size, scale, className, ...rest }) => {
       className={`Identicon ${className}`}
       style={{ height: length, width: length }}
     >
-      <a href={`https://etherscan.io/address/${seed}`} target="_blank">
+      <a
+        href={`https://etherscan.io/address/${seed}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <Blockies {...rest} seed={seed} size={size} scale={scale} />
       </a>
     </div>
