@@ -7830,9 +7830,9 @@ klaw@^1.0.0:
   optionalDependencies:
     graceful-fs "^4.1.9"
 
-kleros-scripts@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/kleros-scripts/-/kleros-scripts-0.5.0.tgz#df9c0729c698552ea10c0be58c393379c819fb6d"
+kleros-scripts@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/kleros-scripts/-/kleros-scripts-0.6.0.tgz#0efb74af1a83d6d5cea654d1da9985912afa5a2c"
   dependencies:
     "@commitlint/cli" "^6.1.0"
     "@commitlint/config-conventional" "^6.1.0"
@@ -7855,7 +7855,7 @@ kleros-scripts@^0.5.0:
     eslint-plugin-standard "^3.0.1"
     eslint-plugin-unicorn "^3.0.1"
     lint-staged "^6.1.0"
-    prettier "^1.10.2"
+    prettier "^1.13.4"
     stylelint "^8.4.0"
     stylelint-config-standard "^18.0.0"
     stylelint-order "^0.8.0"
@@ -10199,7 +10199,7 @@ preserve@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
 
-prettier@^1.10.2, prettier@^1.12.1:
+prettier@^1.10.2, prettier@^1.12.1, prettier@^1.13.4:
   version "1.13.4"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.13.4.tgz#31bbae6990f13b1093187c731766a14036fa72e6"
 
