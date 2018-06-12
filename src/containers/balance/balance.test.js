@@ -17,8 +17,7 @@ beforeEach(() => {
 
 it('Renders and loads balance correctly.', async () => {
   const app = integration.mountApp()
-  await flushPromises()
-  app.update()
+  await flushPromises(app)
   expect(app.find(Balance).text()).toBe(
     'Hello CryptoWorldWelcome [Identicon], You have 100 ETH.'
   )

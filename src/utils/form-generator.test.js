@@ -127,10 +127,10 @@ describe('form', () =>
     expect(submit()).toEqual(reduxFormSubmit(formName))
 
     // Mount form
-    integration.mountApp(
+    const app = integration.mountApp(
       <Form initialValues={{ payment: 'invalid', timeout: 1000 }} />
     )
-    await flushPromises()
+    await flushPromises(app)
   }))
 
 describe('wizardForm', () =>
@@ -159,7 +159,7 @@ describe('wizardForm', () =>
         onSubmit={handleSubmit}
       />
     )
-    await flushPromises()
+    await flushPromises(app)
     expect(onPageChange).toHaveBeenCalledTimes(1)
 
     // Go to the next page
