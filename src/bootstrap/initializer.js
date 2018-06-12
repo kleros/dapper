@@ -24,15 +24,12 @@ class Initializer extends PureComponent {
     ]).isRequired
   }
 
-  state = { isWeb3Loaded: web3.eth.getAccounts !== undefined }
-
   componentDidMount() {
     const { fetchAccounts } = this.props
     fetchAccounts()
   }
 
   render() {
-    const { isWeb3Loaded } = this.state
     const { accounts, children } = this.props
 
     return (
@@ -40,9 +37,9 @@ class Initializer extends PureComponent {
         resource={accounts}
         loading="Loading..."
         done={children}
-        failedLoading={<RequiresMetaMask needsUnlock={isWeb3Loaded} />}
+        failedLoading={<RequiresMetaMask needsUnlock={web3.eth} />}
         extraValues={[accounts.data && accounts.data[0]]}
-        extraFailedValues={[!isWeb3Loaded]}
+        extraFailedValues={[!web3.eth]}
       />
     )
   }
