@@ -8,7 +8,7 @@ if (process.env.NODE_ENV === 'test')
   web3 = new Web3(require('ganache-cli').provider())
 else if (window.web3 && window.web3.currentProvider)
   web3 = new Web3(window.web3.currentProvider)
-else web3 = new Web3.providers.HttpProvider(ETHEREUM_PROVIDER)
+else web3 = new Web3(new Web3.providers.HttpProvider(ETHEREUM_PROVIDER))
 
 const network =
   web3.eth &&
